@@ -21,16 +21,11 @@ protocol ZZVCAnimateTransition {
     @objc func identity()
 }
 
-open
-class ZZVC: UIViewController {
-
-}
-
 extension UIViewController: ZZVCAnimateTransition {
-    var sendViewToBackWhenPop: Bool { return true }
-    var toAnimateUntilFromAnimateDone: Bool { return false }
+    open var sendViewToBackWhenPop: Bool { return true }
+    open var toAnimateUntilFromAnimateDone: Bool { return false }
 
-    @objc public func setStatus(_ status: ZZVCStatus, operation: UINavigationController.Operation) {
+    @objc open func setStatus(_ status: ZZVCStatus, operation: UINavigationController.Operation) {
         let transform = CGAffineTransform.identity
         switch (operation, status) {
         case (.push, .to),
@@ -47,9 +42,5 @@ extension UIViewController: ZZVCAnimateTransition {
 
     @objc open func identity() {
         view.transform = .identity
-    }
-
-    @objc open func aaa() {
-        print("aaaaaaa")
     }
 }
