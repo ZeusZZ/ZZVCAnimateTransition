@@ -13,6 +13,7 @@ typealias VCAnimatedTransitioningParams = (navigationController: UINavigationCon
 public
 typealias VCAnimatedTransitioningHandle = (VCAnimatedTransitioningParams) -> UIViewControllerAnimatedTransitioning?
 
+public
 class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
     var interactiveTransition: UIPercentDrivenInteractiveTransition?
     var gesture: UIPanGestureRecognizer?
@@ -26,8 +27,14 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, UI
         self.navigationController = navigationController
     }
 
+    deinit {
+        if let gesture = gesture {
+            gesture.view?.removeGestureRecognizer(gesture)
+        }
+    }
+
     public func addGesture() {
-        guard let interactivePopGestureRecognizer = navigationController?.interactivePopGestureRecognizer else { return }
+        guard gesture == nil, let interactivePopGestureRecognizer = navigationController?.interactivePopGestureRecognizer else { return }
         self.interactivePopGestureRecognizer = interactivePopGestureRecognizer
         let pan = UIPanGestureRecognizer(target: self, action: NSSelectorFromString("handleNavigationTransition:"))
         pan.delegate = self
@@ -36,7 +43,7 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, UI
         enableGesture()
     }
 
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard let gesture = gesture, gestureRecognizer == gesture else { return false }
         if (navigationController?.viewControllers.count ?? 0) <= 1 {
             return false
@@ -88,12 +95,12 @@ class NavigationControllerDelegate: NSObject, UINavigationControllerDelegate, UI
         }
     }
 
-    func navigationController(_ navigationController: UINavigationController,
+    public func navigationController(_ navigationController: UINavigationController,
                               interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactiveTransition
     }
 
-    func navigationController(_ navigationController: UINavigationController,
+    public func navigationController(_ navigationController: UINavigationController,
                               animationControllerFor operation: UINavigationController.Operation,
                               from fromVC: UIViewController,
                               to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {

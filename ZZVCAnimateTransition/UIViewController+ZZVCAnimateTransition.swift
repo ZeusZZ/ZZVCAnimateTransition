@@ -9,16 +9,28 @@
 import Foundation
 import UIKit
 
-public enum ZZVCStatus {
+@objc public
+enum ZZVCStatus: Int {
     case from
     case to
 }
 
-extension UIViewController {
-    public var sendViewToBackWhenPop: Bool { return true }
-    public var toAnimateUntilFromAnimateDone: Bool { return false }
+@objc public
+protocol ZZVCAnimateTransition {
+    @objc func setStatus(_ status: ZZVCStatus, operation: UINavigationController.Operation)
+    @objc func identity()
+}
 
-    public func setStatus(_ status: ZZVCStatus, operation: UINavigationController.Operation) {
+open
+class ZZVC: UIViewController {
+
+}
+
+extension UIViewController: ZZVCAnimateTransition {
+    var sendViewToBackWhenPop: Bool { return true }
+    var toAnimateUntilFromAnimateDone: Bool { return false }
+
+    @objc public func setStatus(_ status: ZZVCStatus, operation: UINavigationController.Operation) {
         let transform = CGAffineTransform.identity
         switch (operation, status) {
         case (.push, .to),
@@ -33,7 +45,11 @@ extension UIViewController {
         }
     }
 
-    public func identity() {
+    @objc open func identity() {
         view.transform = .identity
+    }
+
+    @objc open func aaa() {
+        print("aaaaaaa")
     }
 }

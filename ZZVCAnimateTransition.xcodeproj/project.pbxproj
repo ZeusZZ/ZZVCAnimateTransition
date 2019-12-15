@@ -51,9 +51,9 @@
 			isa = PBXGroup;
 			children = (
 				3A83C19723A4EF5800EBB67F /* ZZVCAnimateTransition.h */,
-				3A83C19823A4EF5800EBB67F /* Info.plist */,
 				3A83C19F23A4EFBB00EBB67F /* UIViewController+ZZVCAnimateTransition.swift */,
 				3A83C1A123A4F18000EBB67F /* NavigationControllerDelegate.swift */,
+				3A83C19823A4EF5800EBB67F /* Info.plist */,
 			);
 			path = ZZVCAnimateTransition;
 			sourceTree = "<group>";
