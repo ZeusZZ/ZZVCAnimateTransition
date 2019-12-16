@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ZZVCAnimateTransition
 
 class NavigationViewController: UINavigationController {
 
@@ -110,7 +111,7 @@ class VCTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
         containerView.addSubview(to.view)
         if operation == .pop {
-            containerView.sendSubviewToBack(to.view)
+            containerView.sendSubview(toBack: to.view)
         }
 
         to.setStatus(.to, operation: operation)

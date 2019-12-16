@@ -1,32 +1,42 @@
 #
-#  Be sure to run `pod spec lint ZZVCAnimateTransition.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
+# Be sure to run `pod lib lint ZZVCAnimateTransition.podspec' to ensure this is a
+# valid spec before submitting.
 #
-#  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
-#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
+# Any lines starting with a # are optional, but their use is encouraged
+# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
 #
-
 
 Pod::Spec.new do |s|
-  s.name             = "ZZVCAnimateTransition"
-  s.version          = "1.0.1"
-  s.summary          = "Elegant transition library for iOS"
+  s.name             = 'ZZVCAnimateTransition'
+  s.version          = '0.1.0'
+  s.summary          = 'A short description of ZZVCAnimateTransition.'
+
+# This description is used to generate tags and improve search results.
+#   * Think: What does it do? Why did you write it? What is the focus?
+#   * Try to keep it short, snappy and to the point.
+#   * Write the description between the DESC delimiters below.
+#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-                        ZZVCAnimateTransition is a library for building iOS view controller transitions. 
+TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = "https://github.com/ZeusZZ/ZZVCAnimateTransition"
+  s.homepage         = 'https://github.com/ZeusZZ/ZZVCAnimateTransition'
+  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'ZeusZZ' => '497091448@qq.com' }
+  s.source           = { :git => 'https://github.com/ZeusZZ/ZZVCAnimateTransitio.git', :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+
+  s.ios.deployment_target = '8.0'
+
+  s.source_files = 'ZZVCAnimateTransition/Classes/**/*'
   
-  s.license          = 'MIT'
-  s.author           = { "ZeusZZ" => "497091448@qq.com" }
+  # s.resource_bundles = {
+  #   'ZZVCAnimateTransition' => ['ZZVCAnimateTransition/Assets/*.png']
+  # }
 
-  s.source           = { :git => "https://github.com/ZeusZZ/ZZVCAnimateTransition.git", :tag => s.version.to_s }
-  
-  s.ios.deployment_target  = '11.0'
-
-  s.ios.frameworks         = 'UIKit', 'Foundation'
-
-  s.source_files = "ZZVCAnimateTransition/*.swift"
+  # s.public_header_files = 'Pod/Classes/**/*.h'
+  # s.frameworks = 'UIKit', 'MapKit'
+  # s.dependency 'AFNetworking', '~> 2.3'
 end
-

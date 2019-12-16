@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ZZVCAnimateTransition
 
 class ViewController: UIViewController {
 
@@ -14,8 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         title = "\(view.tag)"
-        navigationItem.largeTitleDisplayMode = view.tag == 0 ? .automatic : .never
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationItem.largeTitleDisplayMode = view.tag == 0 ? .automatic : .never
+//        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
