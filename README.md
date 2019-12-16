@@ -22,7 +22,7 @@ pod 'ZZVCAnimateTransition'
 
 ## Author
 
-Antony, antonyzhong.mason@163.com
+ZeusZZ, 497091448@qq.com
 
 ## License
 
