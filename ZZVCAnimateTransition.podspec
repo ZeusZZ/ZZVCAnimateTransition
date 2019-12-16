@@ -93,8 +93,7 @@ TODO: Add long description of the pod here.
   #
 
   spec.ios.frameworks         = 'UIKit', 'Foundation'
-
-  spec.source_files  = "Demo/Classes/*.swift"
+  spec.source_files  = "ZZVCAnimateTransition/*.swift"
   # spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "ZZVCAnimateTransition/ZZVCAnimateTransition/*.swift"
